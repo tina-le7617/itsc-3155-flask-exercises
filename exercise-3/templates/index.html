@@ -1,0 +1,30 @@
+{% extends '_layout.html' %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="registrants">Registered Students</a>
+        </div>
+    </div>
+</nav>
+<br>
+<div class="container">
+    <h1>Register</h1>
+    <p>Use the following form to register for a student organization</p>
+    <form action="/registrants" method="post">
+        <label for="formControlInput" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" id="name" autocomplete="off"><br>
+        <label for="formControlInput" class="form-label">Organization</label>
+        <select class="form-select" name="organization" id="organization" aria-label="Default select">
+            <option value="Charlotte Hack">Charlotte Hack</option>
+            <option value="Code9">Code9</option>
+            <option value="ACM-W">ACM-W</option>
+            <option value="Game Developers">Game Developers</option>
+            <option value="Nihon Club">Nihon Club</option>
+        </select><br>
+        <input type="submit" value="Register" class="btn btn-primary">
+    </form>
+</div>
+{% endblock %}
