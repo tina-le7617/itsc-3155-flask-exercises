@@ -4,16 +4,15 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <div class="navbar-nav">
-            <a class="nav-link" aria-current="page" href="/">Home</a>
-            <a class="nav-link active" href="registrants">Registered Students</a>
+            <a class="nav-link" aria-current="page" href="{{ url_for('index') }}">Home</a>
+            <a class="nav-link active" href="">Registered Students</a>
         </div>
     </div>
 </nav>
 <br>
 <div class="container">
-    <h1>Registered Students</h1>
+    <h1>Registered Students</h1><br>
     <p>The following students have registered for student organizations.</p>
-    <br>
     <table class="table">
         <thead>
             <tr>
@@ -22,18 +21,12 @@
             </tr>
         </thead>
         <tbody>
+            {% for key, value in my_dict.items() %}
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
+                <th scope="row">{{ key }} </th>
+                <td>{{ value }}</td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry the Bird</td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>

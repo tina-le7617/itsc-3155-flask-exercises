@@ -1,18 +1,23 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 
 app = Flask(__name__)
+
+my_dict = {}
+
 
 @app.get('/')
 def index():
     return render_template('index.html')
 
 
-@app.route('/registrants', methods=['GET', 'POST'])
-def registrants():
-    if request.method == 'POST':
-        name = request.form.get('person')
-        organization = request.form.get('organization')
-        return render_template('registrants.html', name=name, organization=organization)
-    return render_template('registrants.html')
+@app.get('/registrants')
+def getRegistrants():
+    return render_template('registrants.html', my_dict=my_dict)
 
-#[your dictionary].update({[student name]:[student organization]})
+
+@app.post('/registrants')
+def postRegistrants():
+    name = request.form.get('name')
+    organization = request.form.get('organization')
+    my_dict.update({name: organization})
+    return render_template('registrants.html', name=name, organization=organization, my_dict=my_dict)
