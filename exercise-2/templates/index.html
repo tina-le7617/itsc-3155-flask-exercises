@@ -1,0 +1,13 @@
+{% extends '_layout.html' %}
+
+{% block body %}
+<div class="container">
+    <h1>Home</h1>
+    <p>Enter an integer to find out if it is even or odd</p>
+    <form action="/submit" method="get">
+        <label for="formControlInput" class="form-label">Number</label>
+        <input type="text" class="form-control" name="num" id="num" autocomplete="off"><br>
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+</div>
+{% endblock %}

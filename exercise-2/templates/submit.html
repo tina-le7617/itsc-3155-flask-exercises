@@ -1,0 +1,18 @@
+{% extends '_layout.html' %}
+
+{% block body %}
+<div class="container">
+    <h1>Calculate</h1>
+    {% if num == '' %}
+    <p>No number provided!</p>
+    {% elif not num.isdigit() %}
+    <p>{{ num }} is not an integer!</p>
+    {% elif num|int % 2 == 0 %}
+    <p>{{ num }} is even</p>
+    {% else %}
+    <p>{{ num }} is odd</p>
+    {% endif %}
+    <br>
+    <a href="/">Go home</a>
+</div>
+{% endblock %}
